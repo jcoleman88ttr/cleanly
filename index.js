@@ -5,16 +5,16 @@ var requestHandlers = require("./requestHandlers");
 var handle = {};
 
 //Main Request Handler
-handle['/'] = requestHandlers.main;
+handle['/'] = requestHandlers.form;
 
 //Page Template Request Handlers
-handle['/start'] = requestHandlers.start;
-handle['/upload'] = requestHandlers.upload;
-handle['/create'] = requestHandlers.create;
-handle['/read'] = requestHandlers.read;
-handle['/readall'] = requestHandlers.readall;
-handle['/update'] = requestHandlers.update;
-handle['/destroy'] = requestHandlers.destroy;
+handle['/form'] = requestHandlers.form;
+handle['/login'] = requestHandlers.login;
+handle['/menu'] = requestHandlers.menu;
+handle['/schedule'] = requestHandlers.schedule;
+handle['/search'] = requestHandlers.search;
+handle['/confirm'] = requestHandlers.confirm;
+
 
 //User Request Handling
 

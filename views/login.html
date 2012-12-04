@@ -1,0 +1,18 @@
+<form action="/login" method="post" id="login_form">
+	<p><input type="email" name="email" value=""/></p>
+	<p><input type="password" name="email" value=""/></p>
+	<p><button class="menu">Sign In</button></p>
+	<p><a href="javascript:void(0)">Oops! Take me back</a></p>
+</form>
+<script type="text/javascript">
+	$('#login_form').submit(function(){
+		$.ajax({
+			url: '/menu',
+			success: function(data) {
+			$('#main').html(data);
+		  }
+		});
+		return false;
+	});
+
+</script>
