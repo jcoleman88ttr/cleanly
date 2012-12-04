@@ -18,29 +18,42 @@
 					  }
 					});
 				}
+				function register() {
+					$.ajax({
+					  url: '/register',
+					  success: function(data) {
+						$('#main').html(data);
+					  }
+					});
+				}
 				$('.login').click(function(){
 					loadlogin();
+				});
+				$('.register').click(function(){
+					register();
 				});
 			});
 		</script>
 		<style type="text/css">
 			* {margin:0;padding:0;}
-			html, body {font-family:Verdana;}
+			html, body {font-family:Verdana;padding-bottom:40px;}
 			header {display:block;background:#333;color:#fff;padding:10px 0;text-align:center;text-transform:uppercase;width:100%;}
-			section#main {display:block;width:100%;padding-top:20px;}
+			section#main {display:block;width:100%;}
 			section#main button {border-radius:12px;display:block;font-weight:bold;font-size:1.4em;margin:20px 5%;padding:20px 2.5%;width:90%;}
 			section#main button:hover {background:#76caff;color:#fff;}
 			form#login_form {margin:20px auto;}
-			form#login_form input {margin:5px 2.5%;padding:20px 1%;width:92%;}
+			form#login_form input {border-radius:8px;margin:5px 5%;padding:20px 1%;width:88%;}
+			form#register_form {margin:20px auto;}
+			form#register_form input {border-radius:8px;margin:5px 5%;padding:20px 1%;width:88%;}
 			form#schedule_form {margin:20px auto;}
-			form#schedule_form strong {margin:5px 2.5%;padding:20px 1%;width:92%;}
-			form#schedule_form select {margin:5px 2.5%;padding:20px 1%;width:92%;}
+			form#schedule_form strong {margin:5px 5%;padding:20px 1%;width:88%;}
+			form#schedule_form select {border-radius:8px;margin:5px 5%;padding:20px 1%;width:88%;}
 			ul.cleanerlist {list-style-type:none;}
 			ul.cleanerlist img {float:left;}
 			ul.cleanerlist .meta p {float:left;width:50%;}
 			ul.cleanerlist span {float:right;display:block;}
 			ul.cleanerlist li {border-bottom:1px solid #eee;padding:10px 0 10px;width:100%;}
-			footer {display:block;background:#333;bottom:0;display:block;position:absolute;width:100%;}
+			footer {display:block;background:#333;bottom:0;display:block;position:fixed;width:100%;}
 			footer nav ul li {display:inline;}
 			footer nav ul li a {color:#fff;display:block;float:left;height:100%;padding:20px 0;width:33.33%;text-align:center;text-decoration:none;}
 			footer nav ul li a:hover {background:#777;}
@@ -51,7 +64,8 @@
 			<h1>Cleanly</h1>
 		</header>
 		<section id="main">
-			<button>Sign Up Now<br/><small>Create an account</small></button>
+			<br />
+			<button class="register">Sign Up Now<br/><small>Create an account</small></button>
 			<p style="text-align:center;">or</p>
 			<button class="login">Log In</button>
 		</section>

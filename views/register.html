@@ -1,0 +1,25 @@
+<form action="/register" method="post" id="register_form">
+	<h2 style="text-align:center;">Personal Information</h2>
+	<p><input type="text" name="name" value="Name"/></p>
+	<p><input type="email" name="email" value="E-Mail Address"/></p>
+	<p><input type="text" name="street" value="Street Address"/></p>
+	<p><input type="text" name="city" value="City"/></p>
+	<p><input type="text" name="zip" value="Zip Code"/></p>
+	<h2 style="text-align:center;">Payment Information</h2>
+	<p><input type="email" name="email" value="Paypal Email"/></p>
+	<p><input type="password" name="pwd" value=""/></p>
+	<p><button class="signup">Sign Up</button></p>
+	<p style="text-align:center;"><a href="./">Oops! Take me back</a></p>
+</form>
+<script type="text/javascript">
+	$('#register_form').submit(function(){
+		$.ajax({
+			url: '/register',
+			success: function(data) {
+			$('#main').html(data);
+		  }
+		});
+		return false;
+	});
+
+</script>

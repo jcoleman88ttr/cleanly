@@ -2,9 +2,17 @@
 	<p><input type="email" name="email" value=""/></p>
 	<p><input type="password" name="email" value=""/></p>
 	<p><button class="menu">Sign In</button></p>
-	<p style="text-align:center;"><a href="javascript:void(0)">Oops! Take me back</a></p>
+	<p style="text-align:center;"><a href="./">Oops! Take me back</a></p>
 </form>
 <script type="text/javascript">
+	function gohome() {
+		$.ajax({
+			url: '/',
+			success: function(data) {
+				$('#main').html(data);
+			}
+		});
+	}
 	$('#login_form').submit(function(){
 		$.ajax({
 			url: '/menu',

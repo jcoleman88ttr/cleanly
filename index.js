@@ -14,7 +14,7 @@ handle['/menu'] = requestHandlers.menu;
 handle['/schedule'] = requestHandlers.schedule;
 handle['/search'] = requestHandlers.search;
 handle['/confirm'] = requestHandlers.confirm;
-
+handle['/register'] = requestHandlers.register;
 
 //User Request Handling
 
