@@ -26,12 +26,40 @@
 					  }
 					});
 				}
+				function orders() {
+					$.ajax({
+					  url: '/orders',
+					  success: function(data) {
+						$('#main').html(data);
+					  }
+					});
+				}
+				function menu() {
+					$.ajax({
+					  url: '/menu',
+					  success: function(data) {
+						$('#main').html(data);
+					  }
+					});
+				}
 				$('.login').click(function(){
 					loadlogin();
 				});
 				$('.register').click(function(){
 					register();
 				});
+				$('.orders').click(function(){
+					orders();
+				});
+				$('.menu').click(function(){
+					menu();
+				});
+				$.ajax({
+					  url: '/main',
+					  success: function(data) {
+						$('#main').html(data);
+					  }
+					});
 			});
 		</script>
 		<style type="text/css">
@@ -63,18 +91,21 @@
 		<header>
 			<h1>Cleanly</h1>
 		</header>
+		<form id="user-info">
+			<input type="hidden" name="username" value="" />
+			<input type="hidden" name="password" value="" />
+			<input type="hidden" name="key" value="" />
+		</form>
+		<section id="alerts"></section>
 		<section id="main">
-			<br />
-			<button class="register">Sign Up Now<br/><small>Create an account</small></button>
-			<p style="text-align:center;">or</p>
-			<button class="login">Log In</button>
+			
 		</section>
 		<footer>
 			<nav id="navigation">
 				<ul>
-					<li><a href="#">Orders</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Account</a></li>
+					<li><a href="#" class="orders">Orders</a></li>
+					<li><a href="#" class="menu">Main</a></li>
+					<li><a href="/account">Account</a></li>
 				</ul>
 			</nav>
 		</footer>

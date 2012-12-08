@@ -1,0 +1,31 @@
+<br />
+<button class="register">Sign Up Now<br/><small>Create an account</small></button>
+<p style="text-align:center;">or</p>
+<button class="login">Log In</button>
+<script type="text/javascript">
+	$(document).ready(function(){
+		function loadlogin() {
+			$.ajax({
+				url: '/login',
+				success: function(data) {
+					$('#main').html(data);
+				}
+			});
+		}
+		function register() {
+			$.ajax({
+				url: '/register',
+				success: function(data) {
+					$('#main').html(data);
+				}
+			});
+		}
+		
+		$('.login').click(function(){
+			loadlogin();
+		});
+		$('.register').click(function(){
+			register();
+		});
+	});
+</script>
