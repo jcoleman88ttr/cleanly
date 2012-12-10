@@ -1,24 +1,30 @@
 <form action="/login" method="post" id="login_form">
-	<p><input type="email" name="email" value=""/></p>
-	<p><input type="password" name="email" value=""/></p>
+	<p><input type="tel" class="phone" value="Mobile Phone" onfocus="if(this.value == 'Mobile Phone') { this.value = ''; }"  style="color:#777;font-weight:bold;font-size:1.4em;text-align:center" /></p>
+	<p><input type="password" class="pwd" value="Password" onfocus="if(this.value == 'Password') { this.value = ''; }" style="color:#777;font-weight:bold;font-size:1.4em;text-align:center"/></p>
 	<p><button class="menu">Sign In</button></p>
 	<p style="text-align:center;"><a href="./app">Oops! Take me back</a></p>
 </form>
 <script type="text/javascript">
-	function gohome() {
-		$.ajax({
-			url: '/',
-			success: function(data) {
-				$('#main').html(data);
-			}
-		});
-	}
 	$('#login_form').submit(function(){
+		var phone = $('input.phone').val();
+		var pwd = $('input.pwd').val();
 		$.ajax({
-			url: '/menu',
+			url: '/checkuser',
+			data: "phone="+phone+"&pwd="+pwd,
 			success: function(data) {
-			$('#main').html(data);
-		  }
+				if(data==1) {
+					$('#alerts').css('background','green').html("Loading...").fadeIn('slow').delay(800).fadeOut('slow',function() {
+						$.ajax({
+							url: '/menu',
+							success: function(data) {
+							$('#main').html(data);
+						}
+						});
+					});
+				} else {
+					$('#alerts').html("Login Incorrect. Please Complain to Tom.").fadeIn('slow');
+				}
+			}
 		});
 		return false;
 	});

@@ -13,21 +13,24 @@ handle['/app'] = requestHandlers.form;
 handle['/login'] = requestHandlers.login;
 handle['/menu'] = requestHandlers.menu;
 handle['/schedule'] = requestHandlers.schedule;
-handle['/search'] = requestHandlers.search;
+handle['/search'] = requestHandlers.broadcast;
 handle['/confirm'] = requestHandlers.confirm;
 handle['/register'] = requestHandlers.register;
 
 
 //User Request Handling
-handle['/getCleaners'] = requestHandlers.getCleaners;
+handle['/changestatus'] = requestHandlers.changeStatus;
+handle['/getcleaners'] = requestHandlers.getCleaners;
+handle['/getusers'] = requestHandlers.getUsers;
+handle['/checkuser'] = requestHandlers.checkUser;
 
 //Order Request Handling
-handle['/createorder'] = requestHandlers.createorder;
-handle['/deleteorder'] = requestHandlers.deleteorder;
-handle['/updateorder'] = requestHandlers.updateorder;
-handle['/order'] = requestHandlers.order;
-handle['/orders'] = requestHandlers.orders;
-handle['/listorders'] = requestHandlers.listorders;
+handle['/addorder'] = requestHandlers.addOrder;
+handle['/removeorder'] = requestHandlers.removeOrder;
+handle['/changeorder'] = requestHandlers.changeOrder;
+handle['/getorder'] = requestHandlers.getOrder;
+handle['/getorders'] = requestHandlers.getOrders;
+
 
 
 //Start Server and Pass route to router
